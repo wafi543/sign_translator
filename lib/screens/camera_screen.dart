@@ -11,6 +11,7 @@ class CameraScreen extends StatefulWidget {
 class _CameraScreenState extends State<CameraScreen> {
   CameraController? controller;
   String text = "انتظر الإشارة...";
+  bool isProcessing = false;
 
   @override
   void initState() {
@@ -27,9 +28,29 @@ class _CameraScreenState extends State<CameraScreen> {
       ResolutionPreset.medium,
     );
 
+    void processFrame(CameraImage image) async {
+      print("Frame received");
+      if (isProcessing) return;
+
+      isProcessing = true;
+
+      print("Processing frame...");
+
+      // هنا لاحقًا بنرسل للصورة لـ MediaPipe
+
+      await Future.delayed(Duration(milliseconds: 300));
+
+      isProcessing = false;
+    }
+
     await controller!.initialize();
     setState(() {});
+
+    await controller!.startImageStream((image) {
+      processFrame(image);
+    });
   }
+  
 
   @override
   void dispose() {
@@ -49,7 +70,6 @@ class _CameraScreenState extends State<CameraScreen> {
       body: Stack(
         children: [
           CameraPreview(controller!),
-
           Positioned(
             bottom: 50,
             left: 20,
@@ -67,7 +87,6 @@ class _CameraScreenState extends State<CameraScreen> {
               ),
             ),
           ),
-
           Positioned(
             top: 40,
             right: 20,
