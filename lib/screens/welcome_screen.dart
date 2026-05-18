@@ -12,26 +12,32 @@ class WelcomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-
             // 🔥 اللوجو
-            Image.asset(
-              'assets/images/logo.jpg',
-              width: 200,
+            ClipRRect(
+              borderRadius: BorderRadius.circular(4),
+              child: Image.asset(
+                'assets/images/logo.jpg',
+                width: 200,
+              ),
             ),
 
-            SizedBox(height: 30),
+            SizedBox(height: 20),
 
-            // 📝 عنوان
+            // 🧑‍💻 الراعي
             Text(
-              "مترجم لغة الإشارة",
+              "الراعي للبرنامج",
+              style: TextStyle(color: Colors.white54, fontSize: 14),
+            ),
+            Text(
+              "رغد الشمري",
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 24,
+                fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             ),
 
-            SizedBox(height: 50),
+            SizedBox(height: 40),
 
             // 🚀 زر ابدأ
             ElevatedButton(
