@@ -1,4 +1,6 @@
 flask
 numpy
+opencv-python
+mediapipe==0.10.13
 scikit-learn
 joblib
