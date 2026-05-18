@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "word": "مرحبا",
+    "category": "تحية",
+    "arabic_letter": "م",
+    "video": "videos/marhaba.mp4",
+    "thumbnail": "thumbs/marhaba.jpg",
+    "description": "إشارة الترحيب",
+    "difficulty": "easy"
+  },
+  {
+    "id": 2,
+    "word": "شكرا",
+    "category": "مجاملة",
+    "arabic_letter": "ش",
+    "video": "videos/shokran.mp4",
+    "thumbnail": "thumbs/shokran.jpg",
+    "description": "إشارة الشكر",
+    "difficulty": "easy"
+  },
+  {
+    "id": 3,
+    "word": "نعم",
+    "category": "إجابات",
+    "arabic_letter": "ن",
+    "video": "videos/naam.mp4",
+    "thumbnail": "thumbs/naam.jpg",
+    "description": "إشارة الموافقة",
+    "difficulty": "easy"
+  },
+  {
+    "id": 4,
+    "word": "لا",
+    "category": "إجابات",
+    "arabic_letter": "ل",
+    "video": "videos/la.mp4",
+    "thumbnail": "thumbs/la.jpg",
+    "description": "إشارة الرفض",
+    "difficulty": "easy"
+  },
+  {
+    "id": 5,
+    "word": "كيف حالك",
+    "category": "محادثة",
+    "arabic_letter": "ك",
+    "video": "videos/kaif_halak.mp4",
+    "thumbnail": "thumbs/kaif_halak.jpg",
+    "description": "سؤال عن الحال",
+    "difficulty": "medium"
+  },
+  {
+    "id": 6,
+    "word": "أنا بخير",
+    "category": "محادثة",
+    "arabic_letter": "أ",
+    "video": "videos/ana_bikhair.mp4",
+    "thumbnail": "thumbs/ana_bikhair.jpg",
+    "description": "الرد على السؤال",
+    "difficulty": "medium"
+  },
+  {
+    "id": 7,
+    "word": "ماء",
+    "category": "طعام",
+    "arabic_letter": "م",
+    "video": "videos/maa.mp4",
+    "thumbnail": "thumbs/maa.jpg",
+    "description": "إشارة الماء",
+    "difficulty": "easy"
+  },
+  {
+    "id": 8,
+    "word": "طعام",
+    "category": "طعام",
+    "arabic_letter": "ط",
+    "video": "videos/taam.mp4",
+    "thumbnail": "thumbs/taam.jpg",
+    "description": "إشارة الطعام",
+    "difficulty": "easy"
+  },
+  {
+    "id": 9,
+    "word": "أحبك",
+    "category": "مشاعر",
+    "arabic_letter": "أ",
+    "video": "videos/ahbak.mp4",
+    "thumbnail": "thumbs/ahbak.jpg",
+    "description": "إشارة المحبة",
+    "difficulty": "medium"
+  },
+  {
+    "id": 10,
+    "word": "مع السلامة",
+    "category": "تحية",
+    "arabic_letter": "م",
+    "video": "videos/maa_alsalama.mp4",
+    "thumbnail": "thumbs/maa_alsalama.jpg",
+    "description": "إشارة الوداع",
+    "difficulty": "easy"
+  }
+]

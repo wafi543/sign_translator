@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/welcome_screen.dart';
+import 'screens/camera_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,9 +13,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Sign Translator',
-      theme: ThemeData.dark(),
-      home: const WelcomeScreen(),
+
+      initialRoute: '/',
+
+      routes: {
+        '/': (context) => WelcomeScreen(),
+        '/camera': (context) => CameraScreen(), // 🔥 هذا المهم
+      },
     );
   }
 }

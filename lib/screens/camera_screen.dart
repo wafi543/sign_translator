@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'dart:async'; // ✅ مهم جدًا
@@ -20,10 +21,25 @@ class _CameraScreenState extends State<CameraScreen> {
   final String apiBase =
       'https://api-sign-translator-481578818334.us-central1.run.app';
 
+  List<dynamic> dataset = [];
+
   @override
   void initState() {
     super.initState();
+    loadDataset();
     initCamera();
+  }
+
+  Future<void> loadDataset() async {
+    try {
+      final String response = await rootBundle.loadString('assets/dataset.json');
+      final data = await json.decode(response);
+      setState(() {
+        dataset = data;
+      });
+    } catch (e) {
+      print("Error loading dataset: $e");
+    }
   }
 
   Future<String> sendImage(File imageFile) async {
@@ -127,13 +143,25 @@ class _CameraScreenState extends State<CameraScreen> {
     }
   }
 
+  String getWordFromArabicLetter(String arabicLetter) {
+    if (dataset.isEmpty) return arabicLetter;
+    
+    for (var item in dataset) {
+      if (item['arabic_letter'] == arabicLetter) {
+        return item['word'] as String;
+      }
+    }
+    return arabicLetter;
+  }
+
   void testApi() async {
     List<double> fake = List.generate(63, (i) => 0.5);
 
     String result = await predict(fake);
 
     setState(() {
-      text = mapLetterToArabicLetter(result);
+      String arabicLetter = mapLetterToArabicLetter(result);
+      text = getWordFromArabicLetter(arabicLetter);
     });
   }
 
@@ -175,7 +203,8 @@ class _CameraScreenState extends State<CameraScreen> {
       String letter = await sendImage(File(file.path));
 
       setState(() {
-        text = mapLetterToArabicLetter(letter); // 🔥 مهم
+        String arabicLetter = mapLetterToArabicLetter(letter);
+        text = getWordFromArabicLetter(arabicLetter); // 🔥 مهم
       });
     });
   }
