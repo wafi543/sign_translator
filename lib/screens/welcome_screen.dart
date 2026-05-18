@@ -7,27 +7,44 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        color: Colors.black,
+      backgroundColor: Colors.black, // خلفية داكنة
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              "Sign Translator",
-              style: TextStyle(fontSize: 28, color: Colors.white),
+
+            // 🔥 اللوجو
+            Image.asset(
+              'assets/images/logo.jpg',
+              width: 200,
             ),
-            const SizedBox(height: 20),
+
+            SizedBox(height: 30),
+
+            // 📝 عنوان
+            Text(
+              "مترجم لغة الإشارة",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+
+            SizedBox(height: 50),
+
+            // 🚀 زر ابدأ
             ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => const CameraScreen(),
-                  ),
-                );
+                Navigator.pushNamed(context, '/camera');
               },
-              child: const Text("ابدأ"),
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+              ),
+              child: Text(
+                "ابدأ",
+                style: TextStyle(fontSize: 18),
+              ),
             ),
           ],
         ),
