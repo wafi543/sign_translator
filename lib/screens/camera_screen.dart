@@ -64,18 +64,64 @@ class _CameraScreenState extends State<CameraScreen> {
     }
   }
 
-  String mapLetterToWord(String letter) {
+  String mapLetterToArabicLetter(String letter) {
     switch (letter) {
-      case "MEEM":
-        return "مرحبا";
+      case "ALIF":
+        return "أ";
+      case "BAA":
+        return "ب";
+      case "TA":
+        return "ت";
+      case "THA":
+        return "ث";
+      case "JEEM":
+        return "ج";
+      case "HAA":
+        return "ح";
+      case "KHAA":
+        return "خ";
+      case "DELL":
+        return "د";
+      case "DHELL":
+        return "ذ";
+      case "RAA":
+        return "ر";
+      case "ZAY":
+        return "ز";
+      case "SEEN":
+        return "س";
       case "SHEEN":
-        return "شكرا";
-      case "NOON":
-        return "نعم";
-      case "LAAM":
-        return "لا";
+        return "ش";
+      case "SAD":
+        return "ص";
+      case "DAD":
+        return "ض";
+      case "TAA":
+        return "ط";
+      case "DHAA":
+        return "ظ";
+      case "AYN":
+        return "ع";
+      case "GHAYN":
+        return "غ";
+      case "FAA":
+        return "ف";
+      case "QAAF":
+        return "ق";
       case "KAAF":
-        return "كيف حالك";
+        return "ك";
+      case "LAAM":
+        return "ل";
+      case "MEEM":
+        return "م";
+      case "NOON":
+        return "ن";
+      case "HA":
+        return "هـ";
+      case "WAW":
+        return "و";
+      case "YA":
+        return "ي";
       default:
         return "...";
     }
@@ -87,7 +133,7 @@ class _CameraScreenState extends State<CameraScreen> {
     String result = await predict(fake);
 
     setState(() {
-      text = mapLetterToWord(result);
+      text = mapLetterToArabicLetter(result);
     });
   }
 
@@ -129,7 +175,7 @@ class _CameraScreenState extends State<CameraScreen> {
       String letter = await sendImage(File(file.path));
 
       setState(() {
-        text = mapLetterToWord(letter); // 🔥 مهم
+        text = mapLetterToArabicLetter(letter); // 🔥 مهم
       });
     });
   }
