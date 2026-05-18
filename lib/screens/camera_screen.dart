@@ -32,13 +32,11 @@ class _CameraScreenState extends State<CameraScreen> {
       Uri.parse('${apiBase}/predict'),
     );
 
-    // 🔥 مهم: نرسل الصورة
     request.files.add(
       await http.MultipartFile.fromPath('image', imageFile.path),
     );
 
     var response = await request.send();
-
     var responseData = await response.stream.bytesToString();
 
     final json = jsonDecode(responseData);
@@ -49,7 +47,7 @@ class _CameraScreenState extends State<CameraScreen> {
 
     print(json);
 
-    return mapLetterToWord(json["result"]);
+    return json["result"];
   }
 
   Future<String> predict(List<double> landmarks) async {
@@ -128,10 +126,10 @@ class _CameraScreenState extends State<CameraScreen> {
     Timer.periodic(Duration(seconds: 1), (timer) async {
       final file = await controller!.takePicture();
 
-      String result = await sendImage(File(file.path));
+      String letter = await sendImage(File(file.path));
 
       setState(() {
-        text = result;
+        text = mapLetterToWord(letter); // 🔥 مهم
       });
     });
   }
